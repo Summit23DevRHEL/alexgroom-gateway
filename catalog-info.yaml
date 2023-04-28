@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: alexgroom-poi-gateway-app-dev
+  annotations:
+    argocd/app-name: alexgroom-poi-gateway-app-dev
+    backstage.io/kubernetes-id: alexgroom-poi-gateway-app-dev
+    backstage.io/kubernetes-namespace: alexgroom
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/instance=alexgroom-poi-gateway-app-dev'
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: Summit23DevRHEL/alexgroom-gateway
+  tags:
+    - java
+    - quarkus
+    - maven
+    - workshop
+  links:
+    - url: https://console-openshift-console.apps.summit23-dr.w6gk.p1.openshiftapps.com/dev-pipelines/ns/alexgroom/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console.apps.summit23-dr.w6gk.p1.openshiftapps.com/k8s/ns/alexgroom/deployments/poi-gateway-app
+      title: Deployment
+      icon: web
+    - url: https://devspaces.apps.summit23-dr.w6gk.p1.openshiftapps.com/#https://github.com/Summit23DevRHEL/alexgroom-gateway?che-editor=che-incubator/che-code/latest&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "user:alexgroom"
+  system: workshop-system-alexgroom
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-alexgroom
+  tags:
+    - backstage
+    - janus-idp
+    - openshift
+    - workshop
+    - rh-summit
+spec:
+  owner: "user:alexgroom"
